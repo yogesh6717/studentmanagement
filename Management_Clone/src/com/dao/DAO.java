@@ -4,7 +4,7 @@ import com.dto.*;
 public interface DAO {
 	public boolean createEmployee(Employee emp);
 	
-	public boolean getEmployee(int id);
+	public Employee getEmployee(int id);
 	
 	public boolean updateEmployee(Employee emp);
 	

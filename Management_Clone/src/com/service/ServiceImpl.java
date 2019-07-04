@@ -16,11 +16,10 @@ public class ServiceImpl implements ServiceDAo {
 	}
 
 	@Override
-	public boolean getEmployee(int id) {
+	public Employee getEmployee(int id) {
 		// TODO Auto-generated method stub
-		boolean res2 = db.readEmp(id);
+		return db.getEmployee(id);
 		
-		return res2 ;
 	}
 
 	@Override
@@ -33,8 +32,8 @@ public class ServiceImpl implements ServiceDAo {
 	@Override
 	public boolean deleteEmployee(int id) {
 		// TODO Auto-generated method stub
-		boolean res3 =db.deleteEmp(id);
-		return false;
+	return db.deleteEmployee(id);
+		
 	}
 
 }

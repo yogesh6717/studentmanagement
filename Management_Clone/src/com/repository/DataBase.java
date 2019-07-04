@@ -5,48 +5,69 @@ import java.util.*;
 import com.dto.Employee;
 
 public class DataBase {
-	Map<Integer,Employee> map = new HashMap<>();
+  static HashMap<Integer,Employee> map = new HashMap<Integer,Employee>();
 
 	public boolean addEmp(Employee emp)
 	{
+		Employee emp1 = map.put(emp.getId(), emp);
+		emp1=map.get(emp.getId());
 		
-		map.put(emp.getId(),emp);
-        
-		
-		if(emp!=null)
+		  if(emp1==null)
 		{
-			return true;
+			return false;
 		}
-		return false;		
+		  else {
+		return true;	
+		  }
    
 	}
 
-	public boolean deleteEmp(int id) {
-		map.remove(id);
-		if(id == (Integer) null )
+	public boolean deleteEmployee(int id) {
+		if(map.containsKey(id))
 		{
-			return true;
+		map.remove(id);
+		return true;
 		}
+		else
 		return false;
 	}
 
-	public boolean readEmp(int id) {
-		map.get(id);
-		if(id == (Integer) null )
+	public Employee getEmployee(int id) {
+		if(map.containsKey(id))
 		{
-			return true;
+			return map.get(id);
 		}
-		return false;
-		
+		else
+			
+			return null;
+	
 	}
 
 	public boolean updateEmp(Employee emp) {
-	map.replace(emp.getId(),emp);
-		if(emp!=null)
-	{
-			return true;
+		if(map.containsKey(emp.getId()))
+		{
+			
+		 map.put(emp.getId(), emp);
+		return true;
 	}
-	return false;
+	else
+	{
+		
+			    return false;	
+			  }
+		} 
+	public void getAllEmploee() {
+		boolean b=true;
+	
+		for(Integer id:map.keySet()) {
+			System.out.println(map.get(id));
+			b=false;
+		}
+		
+		if(b)
+			System.err.println("No Data Found");
+	}
 	}
 
-}
+
+

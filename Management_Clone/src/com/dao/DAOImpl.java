@@ -13,9 +13,9 @@ public class DAOImpl implements DAO {
 	}
 
 	@Override
-	public boolean getEmployee(int id) {
-		boolean res2 = db.readEmp(id);
-		return false;
+	public Employee getEmployee(int id) {
+		Employee emp = db.getEmployee(id);
+		return emp;
 	}
 
 	@Override
@@ -26,7 +26,7 @@ public class DAOImpl implements DAO {
 
 	@Override
 	public boolean deleteEmployee(int id) {
-		boolean res3 = db.deleteEmp(id);
+		boolean res3 = db.deleteEmployee(id);
 
 		return res3;
 		
